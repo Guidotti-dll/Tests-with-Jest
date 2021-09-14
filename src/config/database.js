@@ -1,4 +1,5 @@
 const env = require('env-var')
+
 module.exports = {
   host: env.get('PG_HOST').required().asString(),
   username: env.get('PG_USER').required().asString(),

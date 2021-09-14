@@ -1,10 +1,12 @@
 const express = require('express');
+const {config} = require('dotenv')
 
 class AppController {
   constructor() {
     this.express = express();
     this.routes()
     this.middlewares()
+    config()
   }
 
   middlewares() {

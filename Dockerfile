@@ -13,5 +13,3 @@ COPY . /home/node/app/
 RUN yarn add sequelize-cli -D    
 
 EXPOSE 3333
-
-CMD ["node", "server.js"]
