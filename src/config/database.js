@@ -1,3 +1,4 @@
+require('dotenv').config();
 const env = require('env-var')
 
 module.exports = {
