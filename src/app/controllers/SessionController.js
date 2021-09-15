@@ -1,7 +1,20 @@
+const { User } = require('..//models')
 class SessionController {
-  async store (request, response) {
+  async store (req, res) {
+    console.log('req',req.body)
+    const { email , password } = req.body
 
-    return response.status(200).send()
+    const user = await User.findOne({where : {email}})
+
+    if(!user){
+      return res.status(401).json({message :  'User not found'})
+    }
+
+    if(!(await user.checkPassword(password))){
+      return res.status(401).json({message :  'Incorrect password'})
+    }
+
+    return res.json({user})
   } 
 }
 
